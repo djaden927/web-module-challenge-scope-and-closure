@@ -43,7 +43,13 @@ function scoreboard(inningScoreCB, inningCB, numInnings) {
       awayScore += inningScores.Away;
       inningArray.push(`Inning ${i +1}: Away ${inningScores.Away} - Home ${inningScores.Home}`)
     }
-    return inningArray;
+    if(homeScore === awayScore){
+        inningArray.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`)
+        return inningArray;
+    }else{
+        inningArray.push(`Final Score: Away ${awayScore} - Home ${homeScore}`)
+        return inningArray;
+    }
    }
 
-   console.log(scoreboard(getInningScore, inning, 3));
+   console.log(scoreboard(getInningScore, inning, 9));
